@@ -15,27 +15,27 @@
 3. Установить и запустить Docker Desktop;
 4. Установить и запустить Intellij IDEA;
 5. Скопировать проект с Github **[по ссылке](https://github.com/Renat2287/diplomQA/tree/main)**;
-6. Открыть проект в Intellij IDEA;
-7. Скачать и запустить контейнеры MySQL, PostgreSQL, NodeJS через терминал командой: **docker-compose up**
+6. Открыть проект в Intellij IDEA.
 
-### Запуск тестового приложения для MySQL:
-1. В настройках ***build.gradle*** включить поле ***systemProperty 'db.url', System.getProperty('db.url', "jdbc:mysql://localhost:3306/app")***,
-2. В настройках ***build.gradle*** выключить поле ***systemProperty 'db.url', System.getProperty('db.url', "jdbc:postgresql://localhost:5432/app")***,
-3. В настройках ***application.properties*** включить поле ***spring.datasource.url=jdbc:mysql://localhost:3306/app***,
-4. В настройках ***application.properties*** выключить поле ***spring.datasource.url=jdbc:postgresql://localhost:5432/app***,
-5. В новой вкладке терминала запустить тестовое приложение командой: **java -jar ./artifacts/aqa-shop.jar**.
-6. Для переключения с MySQL на PostgreSQL остановить приложение командой в терминале: **Ctrl+C** и пройти процедуру: ***Запуск тестового приложения для PostgreSQL***
+### Запуск контейнеров MySQL, PostgreSQL, NodeJS:
+* В терминале ввезти команду: **docker-compose up**
 
-### Запуск тестового приложения для PostgreSQL:
-1. В настройках ***build.gradle*** выключить поле ***systemProperty 'db.url', System.getProperty('db.url', "jdbc:mysql://localhost:3306/app")***,
-2. В настройках ***build.gradle*** включить поле ***systemProperty 'db.url', System.getProperty('db.url', "jdbc:postgresql://localhost:5432/app")***,
-3. В настройках ***application.properties*** выключить поле ***spring.datasource.url=jdbc:mysql://localhost:3306/app***,
-4. В настройках ***application.properties*** включить поле ***spring.datasource.url=jdbc:postgresql://localhost:5432/app***,
-5. В новой вкладке терминала запустить тестовое приложение командой: **java -jar ./artifacts/aqa-shop.jar**.
-6. Для переключения с PostgreSQL на MySQL остановить приложение командой в терминале: **Ctrl+C** и пройти процедуру: ***Запуск тестового приложения для MySQL***
+### Запуск тестового приложения:
+#### 1. Для MySQL:
+* В новой вкладке терминала запустить тестовое приложение командой: **java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar ./artifacts/aqa-shop.jar**
+
+#### 2. Для PostgreSQL:
+* В терминале запустить тестовое приложение командой: **java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar ./artifacts/aqa-shop.jar**
+
+#### Для переключения между PostgreSQL и MySQL:
+* Остановить приложение командой в терминале: **Ctrl+C** и повторить необходимые действия из предыдущих разделов.
 
 ### Запуск тестов:
-* В новой вкладке терминала запустить тесты командой: **./gradlew clean test**
+#### 1. Для MySQL:
+* В новой вкладке терминала запустить тесты командой: **./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"**
+
+#### 2. Для PostgreSQL:
+* В вкладке терминала запустить тесты командой: **./gradlew clean test "-Ddb.url=jdbc:posgresql://localhost:5432/app"**
 
 ### Отчет о тестировании
 * Предусмотрено формирование отчетности через Allure. Для этого в новой вкладке терминала вводим команду: **./gradlew allureServe**

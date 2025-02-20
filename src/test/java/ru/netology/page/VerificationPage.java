@@ -47,22 +47,22 @@ public class VerificationPage {
     }
 
     public void incorrectInput() {
-        invalidFormat.shouldBe(visible, Duration.ofSeconds(15))
+        invalidFormat.shouldBe(visible)
                 .shouldHave(Condition.text("Неверный формат"));
     }
 
     public void emptyField() {
-        requiredField.shouldBe(visible, Duration.ofSeconds(15))
+        requiredField.shouldBe(visible)
                 .shouldHave(Condition.text("Поле обязательно для заполнения"));
     }
 
     public void oldMap() {
-        expiredCard.shouldBe(visible, Duration.ofSeconds(15))
+        expiredCard.shouldBe(visible)
                 .shouldHave(Condition.text("Истёк срок действия карты"));
     }
 
     public void cardExpirationDateIsInvalid() {
-        invalidCardExpirationDate.shouldBe(visible, Duration.ofSeconds(15))
+        invalidCardExpirationDate.shouldBe(visible)
                 .shouldHave(Condition.text("Неверно указан срок действия карты"));
     }
 }
