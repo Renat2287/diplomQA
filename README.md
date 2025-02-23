@@ -18,24 +18,36 @@
 6. Открыть проект в Intellij IDEA.
 
 ### Запуск контейнеров MySQL, PostgreSQL, NodeJS:
-* В терминале ввезти команду: **docker-compose up**
+* В терминале ввезти команду:
+
+**docker-compose up**
 
 ### Запуск тестового приложения:
 #### 1. Для MySQL:
-* В новой вкладке терминала запустить тестовое приложение командой: **java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar ./artifacts/aqa-shop.jar**
+* В новой вкладке терминала запустить тестовое приложение командой:
+
+**java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar ./artifacts/aqa-shop.jar**
 
 #### 2. Для PostgreSQL:
-* В терминале запустить тестовое приложение командой: **java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar ./artifacts/aqa-shop.jar**
+* В терминале запустить тестовое приложение командой:
+
+**java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar ./artifacts/aqa-shop.jar**
 
 #### Для переключения между PostgreSQL и MySQL:
 * Остановить приложение командой в терминале: **Ctrl+C** и повторить необходимые действия из предыдущих разделов.
 
 ### Запуск тестов:
 #### 1. Для MySQL:
-* В новой вкладке терминала запустить тесты командой: **./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"**
+* В новой вкладке терминала запустить тесты командой:
+
+**./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"**
 
 #### 2. Для PostgreSQL:
-* В вкладке терминала запустить тесты командой: **./gradlew clean test "-Ddb.url=jdbc:posgresql://localhost:5432/app"**
+* В вкладке терминала запустить тесты командой:
+
+**./gradlew clean test "-Ddb.url=jdbc:posgresql://localhost:5432/app"**
 
 ### Отчет о тестировании
-* Предусмотрено формирование отчетности через Allure. Для этого в новой вкладке терминала вводим команду: **./gradlew allureServe**
+* Предусмотрено формирование отчетности через Allure. Для этого в новой вкладке терминала вводим команду:
+
+**./gradlew allureServe**
